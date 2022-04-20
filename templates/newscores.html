@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add A Student</title>
+<style>
+  html * {
+  font-size: 1em !important;
+  color: #000 !important;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background-image: url('https://cdn.quotesgram.com/img/46/5/1087176253-loose_leaf_paper_page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+
+  .header {
+  padding: 6px;
+  text-align: center;
+  font-size: 100px;
+  border-radius: 25px;
+  }
+
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  .topnav {
+  background-color: #333;
+  overflow: hidden;
+  }
+
+  .topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+  background-color: black;
+  color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+  }
+
+</style>
+</head>
+<body>
+<div class="topnav">
+  <a href="/dashboard">Dashboard</a>
+  <a href="/student/add">Add a New Student</a>
+  <a href="/quiz/add">Add a New Quiz</a>
+  <a class="active" href="/results/add">Input Quiz Results</a>
+</div>
+
+  <form action="/results/add" method="post" id="newscores">
+  <table>
+    <tr>
+        <td width="100">
+          <label for="student">Student: </label>
+          <select name="student" id="student">
+            {% for s in students %}
+            <option value="{{s[0]}}">{{s[1]}} - Student ID: {{s[0]}}</option>
+            {% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+        <td width="100">
+          <label for="quiz">Quiz: </label>
+          <select name="quiz" id="quiz">
+            {% for q in quizzes %}
+            <option value="{{q[0]}}">{{q[1]}} - Quiz ID: {{q[0]}}</option>
+            {% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+        <td width="100">
+          <label for="grade">Grade: </label>
+          <input type="text" name="grade"></input>
+        </td>
+    </tr>
+    <tr>
+      <td><button class="button" type="submit" form="newscores" value="Submit">Submit</td>
+    </tr>
+  </table>
+  </form>
+</html>

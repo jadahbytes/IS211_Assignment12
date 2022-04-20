@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add A Student</title>
+<style>
+  html * {
+  font-size: 1em !important;
+  color: #000 !important;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background-image: url('https://cdn.quotesgram.com/img/46/5/1087176253-loose_leaf_paper_page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+
+  .header {
+  padding: 6px;
+  text-align: center;
+  font-size: 100px;
+  border-radius: 25px;
+  }
+
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  /* Add a black background color to the top navigation */
+  .topnav {
+  background-color: #333;
+  overflow: hidden;
+  }
+
+  /* Style the links inside the navigation bar */
+  .topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+  background-color: black;
+  color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+  }
+
+</style>
+</head>
+
+<body>
+<div class="topnav">
+  <a href="/dashboard">Dashboard</a>
+  <a href="/student/add">Add a New Student</a>
+  <a class="active" href="/quiz/add">Add a New Quiz</a>
+  <a href="/results/add">Input Quiz Results</a>
+</div>
+
+<div class="header">
+  <h1>Add A Quiz</h1>
+  <p>Fill out the below form to add a new quiz.</p>
+</div>
+
+<br>
+<form action="/quiz/add" method="post" id="newquiz">
+    <table>
+        <tr>
+            <td width="100">Subject</td>
+            <td width="500"><input type="text" name="subject"></td>
+        </tr>
+        <tr>
+            <td width="100">Total Questions</td>
+            <td width="500"><input type="text" name="total_questions"></td>
+        </tr>
+        <tr>
+            <td width="400">Date Given (i.e. "February 14")</td>
+            <td width="500"><input type="text" name="month_day"></td>
+        </tr>
+        <tr>
+            <td width="100">Year</td>
+            <td>
+              <select name="year" id="year">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2"><button class="button" type="submit" form="newquiz" value="Submit">Submit</td>
+        </tr>
+    </table>
+</form>
+  {% if error %}
+    <h1 class="error"><strong>Error:</strong> {{ error }}
+  {% endif %}
+</body
+
+
+</html>
